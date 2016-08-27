@@ -14,7 +14,8 @@ $(function(){
 	InitLeftMenu();
 	tabClose();
 	tabCloseEven();
-    //
+
+	
     // $('#tabs').tabs('add',{
 		// title:'疯狂秀才',
 		// content:createFrame('http://hxling.cnblogs.com')
