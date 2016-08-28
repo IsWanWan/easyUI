@@ -22,4 +22,6 @@ public interface AdminMapper {
      *  listPage
      */
     List<Admin> listPage(Map map);
+
+   int totalPage(Map map);
 }

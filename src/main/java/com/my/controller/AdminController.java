@@ -42,7 +42,8 @@ public class AdminController {
 
         Map model = new HashMap();
         List<Admin> adminList = adminService.listPage(map);
-       model.put("total",adminList.size());
+        Integer total = adminService.totalPage(pageMap);
+       model.put("total",total);
         model.put("rows",adminList);
 
         return model;

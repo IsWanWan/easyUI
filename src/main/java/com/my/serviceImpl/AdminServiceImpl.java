@@ -55,4 +55,9 @@ public class AdminServiceImpl implements AdminService {
     public List<Admin> listPage(Map map) {
         return adminMapper.listPage(map);
     }
+
+    @Override
+    public int totalPage(Map map) {
+        return adminMapper.totalPage(map);
+    }
 }

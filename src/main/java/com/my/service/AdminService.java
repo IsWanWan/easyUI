@@ -27,4 +27,6 @@ public interface AdminService {
      *  listPage
      */
     List<Admin> listPage(Map map);
+
+    int totalPage(Map map);
 }
