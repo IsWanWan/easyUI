@@ -33,7 +33,13 @@ public class AdminController {
     @RequestMapping("/listPage")
     public Map listPage(@RequestParam(required = false) String username,Integer rows,Integer page){
        Map<String ,Object> map = new HashMap<>();
+        Map<String,Object> pageMap = new HashMap<>();
         map.put("username",username);
+        map.put("start",(page-1)*rows);
+        map.put("end",page*rows);
+
+        pageMap.put("username",username);
+
         Map model = new HashMap();
         List<Admin> adminList = adminService.listPage(map);
        model.put("total",adminList.size());

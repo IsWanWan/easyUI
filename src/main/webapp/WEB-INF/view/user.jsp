@@ -30,7 +30,7 @@
               nowrap: false,
               toolbar:'#tb',
               pageSize: 10,
-              pageList: [10, 20, 50, 100, 150, 200],
+              pageList: [5, 10, 15, 20, 25, 30],
               remoteSort:false,
               columns: [[
                   { field: 'id', title: 'id', width: 180, align: 'left' ,sortable:true},

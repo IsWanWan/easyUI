@@ -166,6 +166,10 @@
     <if test="username != null">
       And username = #{username,jdbcType=VARCHAR}
     </if>
+    <if test="start != null">
+      limit #{start,jdbcType=INTEGER},#{end,jdbcType=INTEGER}
+
+    </if>
   </select>
 
 </mapper>
