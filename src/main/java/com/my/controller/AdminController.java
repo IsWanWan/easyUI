@@ -39,7 +39,6 @@ public class AdminController {
         map.put("end",page*rows);
 
         pageMap.put("username",username);
-
         Map model = new HashMap();
         List<Admin> adminList = adminService.listPage(map);
         Integer total = adminService.totalPage(pageMap);
