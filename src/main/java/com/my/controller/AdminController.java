@@ -85,7 +85,7 @@ public class AdminController {
     @ResponseBody
     @RequestMapping("/updateAdmin")
     public JsonView  updateAdmin(Admin admin){
-        int n = adminService.insertSelective(admin);
+        int n = adminService.updateByPrimaryKeySelective(admin);
         if(n == 1){
             return new JsonView(200,"修改成功");
         }else{

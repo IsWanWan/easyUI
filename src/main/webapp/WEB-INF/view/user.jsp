@@ -33,8 +33,8 @@
               pageList: [5, 10, 15, 20, 25, 30],
               remoteSort:false,
               columns: [[
-
-                  { field: 'id', title: 'id', width: 180, align: 'left' ,sortable:true},
+                 { field: 'id',checkbox:'true',width:50},
+           //       { field: 'id', title: 'id', width: 180, align: 'left' ,sortable:true},
                   { field: 'username', title: '用户名', width: 150, align: 'left' },
                   { field: 'nickname', title: '昵称', width: 100, align: 'left' },
                   { field: 'name', title: '名称', width: 100, align: 'left' },
@@ -52,9 +52,10 @@
            // alert('添加');
             $('#win').window("open");
         }
-
-
-        function check(){
+      /***
+       * 获取选中行的的id
+       */
+      function check(){
             var ids=[];
             var rows = $('#tb').datagrid('getSelections');
             for(var i=0;i<rows.length;i++){
@@ -63,12 +64,82 @@
             }
             alert(ids);
         }
+      /***
+       * 删除
+       * */
+      function del(){
+          var row = $('#adminTable').datagrid('getSelected');
+          if(row){
+              $('#del').window("open");
+              $('#delid').val(row.id);
+          }else{
+              parent.$.messager.alert('提示', "请选择");
+              return false;
+          }
+      }
+      function  cancel() {
+          $('#del').window("close");
+      }
+      /****
+       *
+       * */
+      function delSubmit() {
+          $("#delform").form({
+              success:function (data) {
+                  var result = eval('('+data+')');
+                  $('#del').window("close");
+                  parent.$.messager.alert('提示', result.message);
+                  $('#adminTable').datagrid('reload');
+
+              }
+          })
+
+      }
+
+
+      /***
+       * 编辑
+       */
+      function edit() {
+
+          var row = $('#adminTable').datagrid('getSelected');
+          if (row){
+              $('#edit').window("open");
+              $("#editid").val(row.id);
+              $("#eidtUsername").val(row.username);
+              $("#editage").val(row.age);
+              $("#editmobile").val(row.mobile);
+          }else{
+              parent.$.messager.alert('提示', "其选择");
+              return false;
+          }
+
+      }
+      /***
+       * 编辑后提交
+       */
+      function  editSubmit() {
+          $('#editform').form({
+              onSubmit:function () {
+                  return $('#editform').form('validate');
+              },
+              success:function(data){
+                  var result = eval('('+data+')');
+                  $('#edit').window("close");
+                  parent.$.messager.alert('提示', result.message);
+                  $('#adminTable').datagrid('reload');
+              }
+          });
+      }
          //查询
         function doSearch(){
             $('#adminTable').datagrid('load',{
                 username:$.trim($('#username').val())
             })
         }
+      /**
+       * 添加提交
+       */
         function tijiao(){
             $('#ff').form({
                 onSubmit:function () {
@@ -94,8 +165,8 @@
    <div id="tb">
     <div>
         <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add()">添加</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="del()">删除</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit()">修改</a>
    </div>
        <div style="padding: 2px;">
            用户名:<input type="text" class="textbox" name="username" id="username">
@@ -108,24 +179,34 @@
 <%-- ----------------------------------------------添加------------------------------------------------------------%>
    <div id="win" class="easyui-window" title="Login" style="width:300px;height:180px;" closed="true"; >
        <form  id="ff" style="padding:10px 20px 10px 40px;" method="post" action="/admin/add">
-           <p>name: <input type="text" name="name" class="easyui-validatebox" required="true" validType="email"></p>
+           <p>name: <input type="text" name="username" class="easyui-validatebox" required="true" validType="email"></p>
            <p>password: <input type="password" name="password" class="easyui-validatebox" required="true" ></p>
            <button  class="easyui-linkbutton" icon="icon-ok"  onclick="tijiao()">ok</button>
            <button  class="easyui-linkbutton" icon="icon-cancel"  type="reset">canel</button>
        </form>
    </div>
    <%-- ----------------------------------------------编辑------------------------------------------------------------%>
-<div id="edit" class="easyui-window" title="编辑" style="width:400px;height: 300px;" colsed="true">
-    <form  id="editform" style="padding:10px 20px 10px 40px;" method="post" action="/admin/add">
-        <p>name: <input type="text" name="name" class="easyui-validatebox" required="true" validType="email"></p>
-        <p>password: <input type="password" name="password" class="easyui-validatebox" required="true" ></p>
-        <p>age: <input type="text" name="age" class="easyui-validatebox" required="true" ></p>
+<div id="edit" class="easyui-window" title="编辑" style="width:300px;height: 200px;" closed="true">
+    <form  id="editform" style="padding:10px 20px 10px 40px;" method="post" action="/admin/updateAdmin">
+        <p><input type="hidden" name="id" id="editid"></p>
+        <p>name: <input type="text" name="username" id="eidtUsername" class="easyui-validatebox" required="true" validType="email"></p>
+        <p>age: <input type="text" name="age" id="editage" class="easyui-validatebox" required="true" ></p>
+        <p>mobile: <input type="text" name="mobile" id="editmobile" class="easyui-validatebox" required="true" ></p>
 
-
-        <button  class="easyui-linkbutton" icon="icon-ok"  onclick="tijiao()">ok</button>
+        <button  class="easyui-linkbutton" icon="icon-ok"  onclick="editSubmit()">ok</button>
         <button  class="easyui-linkbutton" icon="icon-cancel"  type="reset">canel</button>
     </form>
 
+</div>
+
+   <%-- ----------------------------------------------编辑------------------------------------------------------------%>
+<div id="del" class="easyui-window" title="删除" style="width:200px;height: 150px;" closed="true">
+    <form id="delform" style="padding:10px 20px 10px 40px;" method="post" action="/admin/delete">
+        <p>你确认删除本条记录吗</p>
+        <p><input type="hidden" id="delid" name ="adminId" ></p>
+        <button  class="easyui-linkbutton" icon="icon-ok"  onclick="delSubmit()">删除</button>
+        <button  class="easyui-linkbutton" icon="icon-cancel"  type="button" onclick="cancel()" >取消</button>
+    </form>
 </div>
 
 </BODY>
