@@ -18,7 +18,7 @@ public class AdminServiceImpl implements AdminService {
     private AdminMapper adminMapper;
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return adminMapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int insertSelective(Admin record) {
-        return 0;
+        return adminMapper.insertSelective(record);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int updateByPrimaryKeySelective(Admin record) {
-        return 0;
+        return adminMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override

@@ -33,6 +33,7 @@
               pageList: [5, 10, 15, 20, 25, 30],
               remoteSort:false,
               columns: [[
+
                   { field: 'id', title: 'id', width: 180, align: 'left' ,sortable:true},
                   { field: 'username', title: '用户名', width: 150, align: 'left' },
                   { field: 'nickname', title: '昵称', width: 100, align: 'left' },
@@ -48,7 +49,8 @@
       });
 
         function add(){
-            alert('添加');
+           // alert('添加');
+            $('#win').window("open");
         }
 
 
@@ -66,6 +68,20 @@
             $('#adminTable').datagrid('load',{
                 username:$.trim($('#username').val())
             })
+        }
+        function tijiao(){
+            $('#ff').form({
+                onSubmit:function () {
+                    return $('#ff').form('validate');
+                },
+                success:function(data){
+                  var result = eval('('+data+')');
+                    $('#win').window("close");
+                    parent.$.messager.alert('提示', result.message);
+//                    $.messager.alert(result.code);
+
+                }
+            });
         }
     </script>
 </head>
@@ -89,7 +105,28 @@
        </div>
 
    </div>
+<%-- ----------------------------------------------添加------------------------------------------------------------%>
+   <div id="win" class="easyui-window" title="Login" style="width:300px;height:180px;" closed="true"; >
+       <form  id="ff" style="padding:10px 20px 10px 40px;" method="post" action="/admin/add">
+           <p>name: <input type="text" name="name" class="easyui-validatebox" required="true" validType="email"></p>
+           <p>password: <input type="password" name="password" class="easyui-validatebox" required="true" ></p>
+           <button  class="easyui-linkbutton" icon="icon-ok"  onclick="tijiao()">ok</button>
+           <button  class="easyui-linkbutton" icon="icon-cancel"  type="reset">canel</button>
+       </form>
+   </div>
+   <%-- ----------------------------------------------编辑------------------------------------------------------------%>
+<div id="edit" class="easyui-window" title="编辑" style="width:400px;height: 300px;" colsed="true">
+    <form  id="editform" style="padding:10px 20px 10px 40px;" method="post" action="/admin/add">
+        <p>name: <input type="text" name="name" class="easyui-validatebox" required="true" validType="email"></p>
+        <p>password: <input type="password" name="password" class="easyui-validatebox" required="true" ></p>
+        <p>age: <input type="text" name="age" class="easyui-validatebox" required="true" ></p>
 
+
+        <button  class="easyui-linkbutton" icon="icon-ok"  onclick="tijiao()">ok</button>
+        <button  class="easyui-linkbutton" icon="icon-cancel"  type="reset">canel</button>
+    </form>
+
+</div>
 
 </BODY>
 </html>

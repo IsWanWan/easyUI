@@ -12,10 +12,17 @@
 </header>
 <body>
 <h2>Hello World!</h2>
+<script type="application/javascript">
 
-<div id="dialog" class="easyui-dialog" title="弹出框" style="width:300px;height:200px;">
-    弹出框内容
-</div>
-
+</script>
+<%--<div id="dialog" class="easyui-dialog" title="弹出框" style="width:300px;height:200px;">--%>
+    <%--弹出框内容--%>
+<%--</div>--%>
+<%--<a href="#" class="easyui-tooltip" title="只是内容">hover me</a>--%>
+<form method="post" action="">
+ <p> <input type="text" name="username" class="easyui-validatebox" data-options="required:true"> </p>
+    <p> <input type="text" name ="email"   class="easyui-validatebox" data-options="required:true"></p>
+    <button type="submit" value="提交"/>
+</form>
 </body>
 </html>
