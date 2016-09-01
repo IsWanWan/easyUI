@@ -190,7 +190,7 @@
     <form  id="editform" style="padding:10px 20px 10px 40px;" method="post" action="/admin/updateAdmin">
         <p><input type="hidden" name="id" id="editid"></p>
         <p>name: <input type="text" name="username" id="eidtUsername" class="easyui-validatebox" required="true" validType="email"></p>
-        <p>age: <input type="text" name="age" id="editage" class="easyui-validatebox" required="true" ></p>
+        <p>age: <input type="text" name="age" id="editage" class="easyui-validatebox" required="true" validType="length[6,20]" ></p>
         <p>mobile: <input type="text" name="mobile" id="editmobile" class="easyui-validatebox" required="true" ></p>
 
         <button  class="easyui-linkbutton" icon="icon-ok"  onclick="editSubmit()">ok</button>

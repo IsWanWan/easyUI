@@ -12,9 +12,7 @@
 
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/icon.css" />
-    <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/static/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
+
     <script type="text/javascript">
      function mmopen() {
          $('#mm').menu('show',{
@@ -26,11 +24,15 @@
     </script>
 </head>
 <body id="box" class="easyui-layout">
-  <div region="north" style="height: 50px;" title="toubu">
-      <span>后台管理系统</span>
-     <div class="right"><span>欢迎您绾绾,<a href="#">退出登录</a></span></div>
+  <div region="north" noheader="true"  style="height: 30px;
+       background: url('/static/images/layout-browser-hd-bg.gif') #7f99be repeat-x center 50%;
+       line-height: 20px; color:white;font-family:Verdana, 微软雅黑,黑体 ">
+      <div style="float:right; padding-right:20px;">欢迎您绾绾,<a href="#" style="color: white" >退出登录</a></div>
+      <div style="padding-left: 10px; font-size: 16px; line-height: 20px;"  ><img src="/static/images/blocks.gif" width="20" height="20" align="absmiddle" />后台管理系统</div>
   </div>
-  <div region="south" style="height: 100px;" title="footer"></div>
+  <div region="south" style="height: 30px;"  line-hight:30px; align="center" noheader="true" title="footer" >
+       www.taobao.com淘宝吧
+  </div>
   <div region="west" style="width: 150px;" title="west">
 
       <div class="easyui-accordion" style="width:150px;height:500px;">
@@ -75,6 +77,8 @@
   <div id="content" region="center" title="Language" style="padding:5px;">
   </div>
 
-
+  <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="/static/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 </body>
 </html>
