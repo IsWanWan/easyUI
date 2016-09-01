@@ -26,7 +26,7 @@
                     {"menuid":"15","menuname":"权限设置","icon":"icon-set","url":"table.jsp"},
                     {"menuid":"16","menuname":"系统日志","icon":"icon-log","url":"demo1.html"}
                 ]
-            },{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
+             },{"menuid":"8","icon":"icon-sys","menuname":"员工管理",
                 "menus":[{"menuid":"21","menuname":"员工列表","icon":"icon-nav","url":"demo.html"},
                     {"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}
                 ]

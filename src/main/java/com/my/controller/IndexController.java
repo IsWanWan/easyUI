@@ -16,4 +16,10 @@ public class IndexController {
     public ModelAndView index(){
         return new ModelAndView("/test");
     }
+
+    @ResponseBody
+    @RequestMapping("/layout")
+    public ModelAndView layout(){
+        return new ModelAndView("/layout");
+    }
 }
