@@ -52,13 +52,6 @@
 
 
     <cache:annotation-driven cache-manager="ehcacheManager"/>
-    <!--<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">-->
-        <!--<property name="caches">-->
-            <!--<set>-->
-                <!--<bean name="myCache" class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean"/>-->
-            <!--</set>-->
-        <!--</property>-->
-    <!--</bean>-->
     <!-- cacheManager工厂类，指定ehcache.xml的位置 -->
     <bean id="ehcacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
         <property name="configLocation" value="classpath:ehcache.xml" />
@@ -67,6 +60,15 @@
     <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="ehcacheManagerFactory" />
     </bean>
+    <!--&lt;!&ndash; 报警信息缓存 &ndash;&gt;-->
+    <!--<bean id="myCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean" >-->
+        <!--<property name="cacheManager">-->
+            <!--<ref local="ehcacheManager" />-->
+        <!--</property>-->
+        <!--<property name="cacheName">-->
+            <!--<value>myCache</value>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <!-- 事务管理器 -->
     <bean id="transactionManager"

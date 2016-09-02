@@ -1,13 +1,11 @@
-package com.my.common.cache;
+package com.my.common;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.cache.Cache;
 
-
-public class CacheUtil {
-
-    private static Logger logger = LoggerFactory.getLogger(CacheUtil.class);
+/**
+ * Created by wanwan on 16/9/2.
+ */
+public class MyCache {
 
     private Cache cache;
 
@@ -61,4 +59,5 @@ public class CacheUtil {
     public void remove(String key) {
         cache.evict(key);
     }
+
 }
