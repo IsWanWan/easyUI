@@ -4,6 +4,9 @@ import com.my.dao.AdminMapper;
 import com.my.domain.Admin;
 import com.my.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +35,9 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+   @Cacheable(value = "myCache",key="'admin'+#id")
     public Admin selectByPrimaryKey(Integer id) {
+
         return adminMapper.selectByPrimaryKey(id);
     }
 

@@ -4,6 +4,9 @@ import com.my.common.JsonView;
 import com.my.domain.Admin;
 import com.my.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +25,9 @@ import java.util.Map;
 public class AdminController {
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private CacheManager cacheManager;
+
 
     @ResponseBody
     @RequestMapping("/index")
@@ -75,6 +81,26 @@ public class AdminController {
         }
 
 
+    }
+
+    /**
+     * 查询 admin
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/getById")
+    public JsonView getById(int id){
+
+        Element element =  cacheManager.getCache("myCache").get("admin"+id);
+
+         Admin admin = adminService.selectByPrimaryKey(id);
+
+//        cacheManager.getCache("myCache").put(new Element("admin",admin));
+//       Admin  adminOne = (Admin) cacheManager.getCache("myCache").get("admin").getObjectValue();
+//        System.out.println(" 取得admin 缓存 :"+adminOne.getUsername());
+
+        return new JsonView(200,"查询成功",admin);
     }
 
     /***

@@ -43,8 +43,6 @@
                   <div class="menu-sep">编辑</div>
                   <div>Exit</div>
               </div>
-
-
           </div>
           <div title="About easyui" iconCls="icon-edit"  style="padding:10px;">
               easyui help you build your web page easily
