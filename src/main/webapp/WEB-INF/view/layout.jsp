@@ -9,10 +9,8 @@
 <html>
 <head>
     <title>lalyout布局</title>
-
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/icon.css" />
-
     <script type="text/javascript">
      function mmopen() {
          $('#mm').menu('show',{
@@ -27,20 +25,20 @@
   <div region="north" noheader="true"  style="height: 30px;
        background: url('/static/images/layout-browser-hd-bg.gif') #7f99be repeat-x center 50%;
        line-height: 20px; color:white;font-family:Verdana, 微软雅黑,黑体 ">
-      <div style="float:right; padding-right:20px;">欢迎您绾绾,<a href="#" style="color: white" >退出登录</a></div>
+      <div style="float:right; padding-right:20px;" >欢迎您 绾绾,<a href="#" style="color: white" >退出登录</a></div>
       <div style="padding-left: 10px; font-size: 16px; line-height: 20px;"  ><img src="/static/images/blocks.gif" width="20" height="20" align="absmiddle" />后台管理系统</div>
   </div>
   <div region="south" style="height: 30px;"  line-hight:30px; align="center" noheader="true" title="footer" >
        www.taobao.com淘宝吧
   </div>
-  <div region="west" style="width: 150px;" title="west">
+  <div region="west" style="width: 150px;" title="west" iconCls="icon-house">
 
       <div class="easyui-accordion" style="width:150px;height:500px;">
           <div title="About Accordion" iconCls="icon-edit"  style="overflow:auto;padding:10px;" onclick="mmopen()">
               <div id="mm" class="easyui-menu" style="width:120px;">
                   <div onclick="javascript:alert('new')" style="width:80px;">New</div>
                   <div icon="icon-save">Save</div>
-                  <div class="menu-sep">编辑</div>
+                  <div class="menu-edit">编辑</div>
                   <div>Exit</div>
               </div>
           </div>
@@ -55,7 +53,7 @@
                           <li>
                               <span>Sub Folder 1</span>
                               <ul>
-                                  <li><span>File 11</span></li>
+                                  <li><span iconCls="icon-man">File 11</span></li>
                                   <li><span>File 12</span></li>
                                   <li><span>File 13</span></li>
                               </ul>
@@ -72,7 +70,8 @@
 
   </div>
   <%--<div region="east" style="width: 100px;" title="east"></div>div--%>
-  <div id="content" region="center" title="Language" style="padding:5px;">
+  <div id="content" region="center" title="Language" style="padding:5px;" tab="true" iconCls="icon-users">
+      <h1>welcome ! </h1>
   </div>
 
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.min.js"></script>

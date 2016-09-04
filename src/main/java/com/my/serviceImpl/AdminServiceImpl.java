@@ -35,7 +35,6 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-   @Cacheable(value = "myCache",key="'admin'+#id")
     public Admin selectByPrimaryKey(Integer id) {
 
         return adminMapper.selectByPrimaryKey(id);
