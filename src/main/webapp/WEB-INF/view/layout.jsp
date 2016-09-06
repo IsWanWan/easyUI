@@ -12,13 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/static/jquery-easyui-1.4.5/themes/icon.css" />
     <script type="text/javascript">
-     function mmopen() {
-         $('#mm').menu('show',{
-             left:10,
-             top:100
 
-         })
-     }
     </script>
 </head>
 <body id="box" class="easyui-layout">
@@ -31,19 +25,27 @@
   <div region="south" style="height: 30px;"  line-hight:30px; align="center" noheader="true" title="footer" >
        www.taobao.com淘宝吧
   </div>
+  <%-- ----------------------------------------导航-------------------------------------------------------%>
   <div region="west" style="width: 150px;" title="west" iconCls="icon-house">
 
       <div class="easyui-accordion" style="width:150px;height:500px;">
-          <div title="About Accordion" iconCls="icon-edit"  style="overflow:auto;padding:10px;" onclick="mmopen()">
-              <div id="mm" class="easyui-menu" style="width:120px;">
-                  <div onclick="javascript:alert('new')" style="width:80px;">New</div>
-                  <div icon="icon-save">Save</div>
-                  <div class="menu-edit">编辑</div>
-                  <div>Exit</div>
-              </div>
+          <div title="About Accordion" iconCls="icon-edit"  style="overflow:auto;padding:10px;" >
+                  <div><a iconCls="icon-add" url="admin/index">添加</a></div>
+                  <div><a iconCls="icon-edit" url="admin/index">修改</a></div>
           </div>
           <div title="About easyui" iconCls="icon-edit"  style="padding:10px;">
-              easyui help you build your web page easily
+              <ul id="tt" class="easyui-tree">
+                  <li>员工管理</li>
+                  <li>
+                      <span>商品管理</span>
+                      <ul>
+                          <li><span iconCls="icon-add">添加商品</span></li>
+                          <li><span>编辑商品</span></li>
+                          <li><span>删除商品</span></li>
+                      </ul>
+                  </li>
+                  <li>系统管理</li>
+              </ul>
           </div>
           <div title="Tree Menu">
               <ul id="tt1" class="easyui-tree">
@@ -71,9 +73,21 @@
   </div>
   <%--<div region="east" style="width: 100px;" title="east"></div>div--%>
   <div id="content" region="center" title="Language" style="padding:5px;" tab="true" iconCls="icon-users">
-      <h1>welcome ! </h1>
-  </div>
+     <div id="tab" class="easyui-tabs">
+         <div title="tab1" closable="true" iconCls="icon-man" style="padding: 10px;">
+           <h1>welcome to tab1</h1>
+         </div>
 
+     </div>
+  </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#pox').tabs('add',{
+            title:'新的选项卡',
+            closable:true
+        });
+    })
+</script>
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.min.js"></script>
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>

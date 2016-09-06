@@ -150,7 +150,7 @@
                     $('#win').window("close");
                     parent.$.messager.alert('提示', result.message);
 //                    $.messager.alert(result.code);
-
+                    $('#adminTable').datagrid('reload');
                 }
             });
         }
