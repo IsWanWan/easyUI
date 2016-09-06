@@ -28,8 +28,8 @@
     <mvc:resources mapping="/css/**" location="classpath*:/static/css/" />
     <mvc:resources mapping="/js/**" location="classpath*:/static/js/" />
     <mvc:resources mapping="/images/**" location="classpath*:/static/images/" />
-
-    <context:component-scan base-package="com.my"/>
+    <!--  这里只扫描controller  如果扫描全部相当于有从新 装配了service  如果重新装配了service 父容器配置的 事务将失效-->
+    <context:component-scan base-package="com.my.controller"/>
 
     <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
