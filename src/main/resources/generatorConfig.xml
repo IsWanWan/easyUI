@@ -27,7 +27,7 @@
                              targetPackage="com.my.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table schema="" tableName="admin" domainObjectName="Admin"
+        <table schema="" tableName="t_sysmenu" domainObjectName="Sysmenu"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

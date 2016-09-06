@@ -24,11 +24,13 @@ public interface AdminService {
     int updateByPrimaryKey(Admin record);
 
 
-
     /***
      *  listPage
      */
     List<Admin> listPage(Map map);
 
     int totalPage(Map map);
+
+
+    int insertTrans();
 }

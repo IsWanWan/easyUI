@@ -37,6 +37,7 @@
         <property name="mapperLocations" >
             <list>
                 <value>classpath*:com/my/mapping/AdminMapper.xml</value>
+                <value>classpath*:com/my/mapping/SysmenuMapper.xml</value>
             </list>
 
         </property>

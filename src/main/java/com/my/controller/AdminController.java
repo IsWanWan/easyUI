@@ -139,4 +139,19 @@ public class AdminController {
             return new JsonView(500,"添加失败");
         }
     }
+
+    /**
+     * 测试事务
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/testTran")
+    public JsonView testTran(){
+        int n = adminService.insertTrans();
+        if(n == 1){
+            return new JsonView(200,"添加成功");
+        }else{
+            return new JsonView(500,"添加失败");
+        }
+    }
 }
