@@ -114,4 +114,7 @@ public class Sysmenu {
         this.createTime = createTime;
         this.status = status;
     }
+
+    public Sysmenu() {
+    }
 }

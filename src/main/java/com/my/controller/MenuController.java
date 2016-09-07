@@ -20,7 +20,7 @@ public class MenuController {
     private SysmenuService sysmenuService;
     @ResponseBody
     @RequestMapping("/list")
-    public List<Sysmenu> list(int parentId){
+    public List list(int parentId){
         List list = sysmenuService.selectMenuList(parentId);
         return list;
     }

@@ -1,7 +1,9 @@
 package com.my.dao;
 
 import com.my.domain.Sysmenu;
-import com.sun.tools.javac.util.List;
+
+
+import java.util.List;
 
 public interface SysmenuMapper {
     int deleteByPrimaryKey(Long id);

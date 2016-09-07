@@ -3,9 +3,11 @@ package com.my.serviceImpl;
 import com.my.dao.SysmenuMapper;
 import com.my.domain.Sysmenu;
 import com.my.service.SysmenuService;
-import com.sun.tools.javac.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by wanwan on 16/9/7.
