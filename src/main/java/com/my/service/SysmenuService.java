@@ -1,9 +1,13 @@
-package com.my.dao;
+package com.my.service;
 
 import com.my.domain.Sysmenu;
 import com.sun.tools.javac.util.List;
 
-public interface SysmenuMapper {
+/**
+ * Created by wanwan on 16/9/7.
+ */
+public interface SysmenuService {
+
     int deleteByPrimaryKey(Long id);
 
     int insert(Sysmenu record);
@@ -16,5 +20,6 @@ public interface SysmenuMapper {
 
     int updateByPrimaryKey(Sysmenu record);
 
-    public List<Sysmenu> selectMenuList(int parentId);
+
+    List<Sysmenu> selectMenuList(int parentId);
 }

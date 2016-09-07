@@ -27,47 +27,47 @@
   </div>
   <%-- ----------------------------------------导航-------------------------------------------------------%>
   <div region="west" style="width: 150px;" title="west" iconCls="icon-house">
-
-      <div class="easyui-accordion" style="width:150px;height:500px;">
-          <div title="About Accordion" iconCls="icon-edit"  style="overflow:auto;padding:10px;" >
-                  <div><a iconCls="icon-add" url="admin/index">添加</a></div>
-                  <div><a iconCls="icon-edit" url="admin/index">修改</a></div>
-          </div>
-          <div title="About easyui" iconCls="icon-edit"  style="padding:10px;">
-              <ul id="tt" class="easyui-tree">
-                  <li>员工管理</li>
-                  <li>
-                      <span>商品管理</span>
-                      <ul>
-                          <li><span iconCls="icon-add">添加商品</span></li>
-                          <li><span>编辑商品</span></li>
-                          <li><span>删除商品</span></li>
-                      </ul>
-                  </li>
-                  <li>系统管理</li>
-              </ul>
-          </div>
-          <div title="Tree Menu">
-              <ul id="tt1" class="easyui-tree">
-                  <li>
-                      <span>Folder1</span>
-                      <ul>
-                          <li>
-                              <span>Sub Folder 1</span>
-                              <ul>
-                                  <li><span iconCls="icon-man">File 11</span></li>
-                                  <li><span>File 12</span></li>
-                                  <li><span>File 13</span></li>
-                              </ul>
-                          </li>
-                          <li><span>File 2</span></li>
-                          <li><span>File 3</span></li>
-                      </ul>
-                  </li>
-                  <li><span>File2</span></li>
-              </ul>
-          </div>
-      </div>
+              <ul id="nav"></ul>
+      <%--<div class="easyui-accordion" style="width:150px;height:500px;">--%>
+          <%--<div title="About Accordion" iconCls="icon-edit"  style="overflow:auto;padding:10px;" >--%>
+                  <%--<div><a iconCls="icon-add" url="admin/index">添加</a></div>--%>
+                  <%--<div><a iconCls="icon-edit" url="admin/index">修改</a></div>--%>
+          <%--</div>--%>
+          <%--<div title="About easyui" iconCls="icon-edit"  style="padding:10px;">--%>
+              <%--<ul id="tt" class="easyui-tree">--%>
+                  <%--<li><a onclick="addTab('员工管理','/admin/index')">员工管理</a></li>--%>
+                  <%--<li>--%>
+                      <%--<span>商品管理</span>--%>
+                      <%--<ul>--%>
+                          <%--<li><span iconCls="icon-add">添加商品</span></li>--%>
+                          <%--<li><span>编辑商品</span></li>--%>
+                          <%--<li><span>删除商品</span></li>--%>
+                      <%--</ul>--%>
+                  <%--</li>--%>
+                  <%--<li>系统管理</li>--%>
+              <%--</ul>--%>
+          <%--</div>--%>
+          <%--<div title="Tree Menu">--%>
+              <%--<ul id="tt1" class="easyui-tree">--%>
+                  <%--<li>--%>
+                      <%--<span>Folder1</span>--%>
+                      <%--<ul>--%>
+                          <%--<li>--%>
+                              <%--<span>Sub Folder 1</span>--%>
+                              <%--<ul>--%>
+                                  <%--<li><span iconCls="icon-man">File 11</span></li>--%>
+                                  <%--<li><span>File 12</span></li>--%>
+                                  <%--<li><span>File 13</span></li>--%>
+                              <%--</ul>--%>
+                          <%--</li>--%>
+                          <%--<li><span>File 2</span></li>--%>
+                          <%--<li><span>File 3</span></li>--%>
+                      <%--</ul>--%>
+                  <%--</li>--%>
+                  <%--<li><span>File2</span></li>--%>
+              <%--</ul>--%>
+          <%--</div>--%>
+      <%--</div>--%>
 
 
   </div>
@@ -81,12 +81,21 @@
      </div>
   </div>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('#pox').tabs('add',{
-            title:'新的选项卡',
-            closable:true
-        });
-    })
+
+        function addTab(title, url){
+            if ($('#tab').tabs('exists', title)){
+                $('#tab').tabs('select', title);
+            } else {
+                var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+                $('#tab').tabs('add',{
+                    title:title,
+                    content:content,
+                    closable:true
+                });
+            }
+        }
+
+
 </script>
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.min.js"></script>
   <script type="text/javascript" src="/static/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>

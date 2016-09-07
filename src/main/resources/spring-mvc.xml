@@ -13,35 +13,16 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
     <!---三大组建  ,处理器,适配器,试图解析器-->
-    <!--&lt;!&ndash;配置hadler &ndash;&gt;-->
-<!--<bean id="/person.action" class="com.my.controller.PersonController"/>-->
-    <!--&lt;!&ndash; 处理器映射七&ndash;&gt;-->
-  <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
-
-    <!--&lt;!&ndash;适配七  &ndash;&gt;-->
     <mvc:annotation-driven/>
-    <mvc:default-servlet-handler/>
 
     <!-- 对静态资源文件的访问 -->
-    <mvc:resources mapping="/css/**" location="classpath*:/static/css/" />
-    <mvc:resources mapping="/js/**" location="classpath*:/static/js/" />
-    <mvc:resources mapping="/images/**" location="classpath*:/static/images/" />
+    <mvc:default-servlet-handler/>
     <!--  这里只扫描controller  如果扫描全部相当于有从新 装配了service  如果重新装配了service 父容器配置的 事务将失效-->
     <context:component-scan base-package="com.my.controller"/>
 
     <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--&lt;!&ndash; 加入 json数据的消息转换器 MappingJacksonHttpMessageConverter依赖Jackson的包 &ndash;&gt;-->
-        <!--<property name="messageConverters">-->
-            <!--<list>-->
-                <!--<bean-->
-                        <!--class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
 
          <!--  试图渲染器-->
 

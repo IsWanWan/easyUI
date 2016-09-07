@@ -72,7 +72,7 @@ public class AdminController {
      * @param adminId
      * @return
      */
-   @Test
+
     @ResponseBody
     @RequestMapping("/delete")
     public JsonView delete(int adminId){
@@ -129,7 +129,13 @@ public class AdminController {
         }
 
     }
-    @ResponseBody
+
+    /***
+     * 添加用户
+     * @param admin
+     * @return
+     */
+     @ResponseBody
     @RequestMapping("/add")
     public JsonView add(Admin admin){
         int n = adminService.insertSelective(admin);
