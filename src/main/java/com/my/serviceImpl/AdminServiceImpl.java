@@ -6,11 +6,7 @@ import com.my.domain.Admin;
 import com.my.domain.Sysmenu;
 import com.my.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
